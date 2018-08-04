@@ -1,4 +1,6 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
+
  const Book = (props) => {
   const { imgLink, title, authors } = props;
   const thumbnail = imgLink && imgLink.thumbnail ? imgLink.thumbnail : null;
@@ -23,4 +25,11 @@ import React from 'react';
     </li>
   )
 }
+
+Book.propTypes = {
+    imageLink: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    authors: PropTypes.array.isRequired
+}
+
  export default Book;

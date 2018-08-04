@@ -1,5 +1,8 @@
 import React from 'react';
- import Book from 'book';
+import Book from './components/Book.js';
+import { PropTypes } from 'prop-types';
+
+
  const BookList = (props) => (
   <ol className="books-grid">
     { 
@@ -14,4 +17,8 @@ import React from 'react';
     }
   </ol>
 )
+BookList.propTypes = {
+    list: PropTypes.array.isRequired
+  }
+  
  export default BookList;
