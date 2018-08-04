@@ -5,19 +5,11 @@ import SearchPage from './SearchPage';
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
-class BooksApp extends React.Component {
-  state = {
+const App = () => (
+  <div className="app">
+    <Route exact path='/' component={MainPage}/>
+    <Route path='/search' component={SearchPage}/>
+  </div>
+)
 
-  }
-
-  render() {
-    return (
-      <div className="app">
-        <Route exact path='/' component={MainPage}/>
-        <Route path='/search' component={SearchPage}/>
-      </div>
-    )
-  }
-}
-
-export default BooksApp
+export default App
