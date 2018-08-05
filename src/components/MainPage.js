@@ -21,7 +21,8 @@ class MainPage extends Component {
   }
 
   updateShelf = (bookId, shelf) => {
-    console.log(bookId + '-' + shelf);
+    console.log(book);
+    console.log(shelf);
   }
 
   render() {

@@ -8,11 +8,7 @@ import { PropTypes } from 'prop-types';
     { 
       props.list.map((book) => 
         <Book
-          imgLink={book.imageLinks}
-          key={book.id}
-          id={book.id}
-          title={book.title}
-          authors={book.authors} 
+          book={book}
           handleShelfUpdate={props.handleShelfUpdate} 
         />
       )
