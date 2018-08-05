@@ -15,38 +15,38 @@ class SearchPage extends Component {
     handleShelfUpdate: PropTypes.func.isRequired
   }
 
-    state = {
-        results: []
-      }
+  state = {
+      results: []
+    }
 
-      updateResults = (updatedBook, shelf) => {
-        const index = this.state.results.indexOf(updatedBook);
-        const newBook = Object.assign({}, updatedBook, { shelf: shelf });
-        this.setState({
-          results: [
-            ...this.state.results.slice(0, index),
-            newBook,
-            ...this.state.results.slice(index + 1),
-          ]
-        });
-      }
+  updateResults = (updatedBook, shelf) => {
+    const index = this.state.results.indexOf(updatedBook);
+    const newBook = Object.assign({}, updatedBook, { shelf: shelf });
+    this.setState({
+      results: [
+        ...this.state.results.slice(0, index),
+        newBook,
+        ...this.state.results.slice(index + 1),
+      ]
+    });
+  }
 
-      onChange = (event) => {
-        this.searchBooks(event.target.value.trim());
-      }
+  onChange = (event) => {
+    this.searchBooks(event.target.value.trim());
+  }
 
-      searchBooks = debounce(1000, (query) => {
-        BooksAPI.search(query, maxResults)
-          .then(response => {
-            this.props.books.forEach(shelvedBook => {
-              const match = response.find((resultBook) => resultBook.id === shelvedBook.id);
-              if (match) {
-                match.shelf = shelvedBook.shelf;  
-              }
-            })
-            this.setState({ results: response });
-        });
-      })
+  searchBooks = debounce(1000, (query) => {
+    BooksAPI.search(query, maxResults)
+      .then(response => {
+        this.props.books.forEach(shelvedBook => {
+          const match = response.find((resultBook) => resultBook.id === shelvedBook.id);
+          if (match) {
+            match.shelf = shelvedBook.shelf;  
+          }
+        })
+        this.setState({ results: response });
+    });
+  })
 
   render() {
     return (
