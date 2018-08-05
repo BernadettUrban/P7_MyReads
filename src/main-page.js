@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import BookList from 'book-list';
 import * as BooksAPI from 'api/books';
 
@@ -11,6 +12,10 @@ const Shelf = {
  
 class MainPage extends Component {
 
+  static propTypes = {
+    handleShelfUpdate: PropTypes.func.isRequired
+  }
+
   state = {
     books: []
   }
@@ -20,10 +25,7 @@ class MainPage extends Component {
     });
   }
 
-  updateShelf = (bookId, shelf) => {
-    console.log(book);
-    console.log(shelf);
-  }
+
 
   render() {
     return (
@@ -38,7 +40,7 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <BookList 
                   list={this.state.books.filter(book => book.shelf === Shelf.CURRENTLY_READING)}
-                  handleShelfUpdate={this.updateShelf}
+                  handleShelfUpdate={this.props.handleShelfUpdate}
                 />
               </div>
             </div>
@@ -47,7 +49,7 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <BookList 
                   list={this.state.books.filter(book => book.shelf === Shelf.WANT_TO_READ)}
-                  handleShelfUpdate={this.updateShelf}
+                  handleShelfUpdate={this.props.handleShelfUpdate}
                 />
               </div>
             </div>
@@ -56,7 +58,7 @@ class MainPage extends Component {
               <div className="bookshelf-books">
                 <BookList 
                   list={this.state.books.filter(book => book.shelf === Shelf.READ)}
-                  handleShelfUpdate={this.updateShelf}
+                  handleShelfUpdate={this.props.handleShelfUpdate}
                 />
               </div>
             </div>

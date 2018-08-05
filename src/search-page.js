@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from 'api/books'
-import Book from 'book';
+//import Book from 'book';
 import BookList from 'book-list';
 
 class SearchPage extends Component {
+
+  static propTypes = {
+    handleShelfUpdate: PropTypes.func.isRequired
+  }
+
     state = {
         maxResults: 20,
         results: []
@@ -36,7 +42,10 @@ class SearchPage extends Component {
         </div>
         { this.state.results.length !== 0 && (
           <div className="search-books-results">
-            <BookList list={this.state.results}/>
+            <BookList 
+              list={this.state.results}
+              handleShelfUpdate={this.props.handleShelfUpdate}
+            />
           </div> 
         )}
       </div>
