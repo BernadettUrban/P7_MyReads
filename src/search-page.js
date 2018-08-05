@@ -5,6 +5,8 @@ import * as BooksAPI from 'api/books'
 //import Book from 'book';
 import BookList from 'book-list';
 
+const maxResults = 20;
+
 class SearchPage extends Component {
 
   static propTypes = {
@@ -12,7 +14,6 @@ class SearchPage extends Component {
   }
 
     state = {
-        maxResults: 20,
         results: []
       }
        searchBooks = (event) => {
