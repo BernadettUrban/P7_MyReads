@@ -10,15 +10,18 @@ import { PropTypes } from 'prop-types';
         <Book
           imgLink={book.imageLinks}
           key={book.id}
+          id={book.id}
           title={book.title}
-          authors={book.authors}  
+          authors={book.authors} 
+          handleShelfUpdate={props.handleShelfUpdate} 
         />
       )
     }
   </ol>
 )
 BookList.propTypes = {
-    list: PropTypes.array.isRequired
+    list: PropTypes.array.isRequired,
+    handleShelfUpdate: PropTypes.func.isRequired
   }
   
  export default BookList;

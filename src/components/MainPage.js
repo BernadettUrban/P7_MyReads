@@ -20,6 +20,9 @@ class MainPage extends Component {
     });
   }
 
+  updateShelf = (bookId, shelf) => {
+    console.log(bookId + '-' + shelf);
+  }
 
   render() {
     return (
@@ -32,19 +35,28 @@ class MainPage extends Component {
             <div className="bookshelf">
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
-                <BookList list={this.state.books.filter(book => book.shelf === Shelf.CURRENTLY_READING)}/>
+                <BookList 
+                  list={this.state.books.filter(book => book.shelf === Shelf.CURRENTLY_READING)}
+                  handleShelfUpdate={this.updateShelf}
+                />
               </div>
             </div>
             <div className="bookshelf">
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
-                <BookList list={this.state.books.filter(book => book.shelf === Shelf.WANT_TO_READ)}/>
+                <BookList 
+                  list={this.state.books.filter(book => book.shelf === Shelf.WANT_TO_READ)}
+                  handleShelfUpdate={this.updateShelf}
+                />
               </div>
             </div>
             <div className="bookshelf">
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
-                <BookList list={this.state.books.filter(book => book.shelf === Shelf.READ)}/>
+                <BookList 
+                  list={this.state.books.filter(book => book.shelf === Shelf.READ)}
+                  handleShelfUpdate={this.updateShelf}
+                />
               </div>
             </div>
           </div>
