@@ -10,6 +10,7 @@ const maxResults = 20;
 class SearchPage extends Component {
 
   static propTypes = {
+    books: PropTypes.array.isRequired,
     handleShelfUpdate: PropTypes.func.isRequired
   }
 
@@ -19,10 +20,16 @@ class SearchPage extends Component {
        searchBooks = (event) => {
         const query = event.target.value.trim();
         if (query.length >= 3) {
-          BooksAPI.search(query, this.state.maxResults)
-            .then(results => {
-              this.setState({ results })
+          BooksAPI.search(query, maxResults)
+          .then(response => {
+            this.props.books.forEach(shelvedBook => {
+              const match = response.find((resultBook) => resultBook.id === shelvedBook.id);
+              if (match) {
+                match.shelf = shelvedBook.shelf;  
+              }
             })
+            this.setState({ results: response });
+        });
         }
       }
 
@@ -36,7 +43,6 @@ class SearchPage extends Component {
             <input 
                 type='text' 
                 placeholder='Search by title or author'
-                value={this.state.query}
                 onChange={this.searchBooks}
             />
           </div>
