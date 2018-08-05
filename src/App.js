@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom';
-import MainPage from './components/MainPage';
-import SearchPage from './components/SearchPage';
-// import * as BooksAPI from './BooksAPI'
-import './App.css'
+import MainPage from 'main-page';
+import SearchPage from 'search-page';
+import * as BooksAPI from 'api/books'
+import 'css/app.css'
 
 const App = () => (
   <div className="app">

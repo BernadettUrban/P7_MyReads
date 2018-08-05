@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import BookList from 'BookList';
-import * as BooksAPI from './BooksAPI';
+import BookList from 'book-list';
+import * as BooksAPI from 'api/books';
 
 const Shelf = {
   CURRENTLY_READING: 'currentlyReading',
