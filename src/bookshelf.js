@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
  import BookList from 'book-list';
  const BookShelf = (props) => (
   <div className="bookshelf">
-    <h2 className="bookshelf-title">Currently Reading</h2>
+    <h2 className="bookshelf-title">{props.name}</h2>
     <div className="bookshelf-books">
       <BookList 
         list={props.books}
