@@ -50,14 +50,14 @@ class SearchPage extends Component {
 
   render() {
     return (
-        <div className="search-books">
+       <div className="search-books">
         <div className='search-books-bar'>
           <Link className="close-search" to='/'/>
           <div className='search-books-input-wrapper'>
             <input 
-                type='text' 
-                placeholder='Search by title or author'
-                onChange={this.onChange}
+               type='text' 
+               placeholder='Search by title or author'
+               onChange={this.onChange}
             />
           </div>
         </div>
