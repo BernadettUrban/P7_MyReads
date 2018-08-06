@@ -1,8 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
- const Book = (props) => {
-  const { book: { imageLinks,  title, authors, shelf }, handleShelfUpdate } = props;
+const Book = (props) => {
+  const { book: { imageLinks, title, authors, shelf }, handleShelfUpdate } = props;
   const thumbnail = imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : null;
   return (
     <li>
