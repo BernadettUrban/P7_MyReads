@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from 'react-router-dom';
 import MainPage from 'main-page';
 import SearchPage from 'search-page';
-import * as BooksAPI from 'api/books'
+import * as BooksAPI from 'api/books';
 import 'css/app.css'
 
 class App extends Component {
@@ -24,9 +24,9 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-  BooksAPI.getAll().then(books => {
-    this.setState({ books });
-  });
+    BooksAPI.getAll().then(books => {
+      this.setState({ books });
+    });
  }
 
 
