@@ -1,6 +1,7 @@
 import React from 'react';
-import Book from 'book';
+
 import { PropTypes } from 'prop-types';
+import Book from 'book';
 
 
  const BookList = (props) => (
@@ -8,6 +9,7 @@ import { PropTypes } from 'prop-types';
     { 
       props.list.map((book) => 
         <Book
+          key={book.id}
           book={book}
           handleShelfUpdate={props.handleShelfUpdate} 
         />
